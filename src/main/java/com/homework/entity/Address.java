@@ -1,7 +1,5 @@
 package com.homework.entity;
 
-import java.util.Objects;
-
 public class Address {
     private final String street;
     private final String city;
@@ -29,20 +27,4 @@ public class Address {
     public String getBuildingNumber() {
         return buildingNumber;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Address) obj;
-        return Objects.equals(this.street, that.street) &&
-                Objects.equals(this.city, that.city) &&
-                Objects.equals(this.buildingNumber, that.buildingNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(street, city, buildingNumber);
-    }
-
 }
