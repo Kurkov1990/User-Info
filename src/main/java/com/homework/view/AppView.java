@@ -5,34 +5,39 @@ import com.homework.entity.User;
 
 public class AppView {
 
-    private void getOutput(String output) {
+    private static final Address address = new Address("Khreshchatyk St", "Kiev", "123");
+    private static final User user = new User("John", "Smith", address);
+
+    private static void getOutput(String output) {
         System.out.println(output);
     }
 
-    private String formatUserAddress(User user) {
+    private static String formatUserAddress() {
         if (user.getAddress() == null) {
             return "Address not available.";
         }
         return """
+                User's name: %s %s
+                User's address:
                 City: %s
                 Street: %s
                 Building: %s
-                """.formatted(user.getAddress().city(), user.getAddress().street(), user.getAddress().buildingNumber());
+                """.formatted(user.getFirstName(), user.getLastName(),user.getAddress().getCity(), user.getAddress().getStreet(), user.getAddress().getBuildingNumber());
     }
 
-    public String setUserAddress() {
-        Address address = new Address("Khreshchatyk St", "Kiev", "123");
-        User user = new User("John", "Smith", null);
-        user.setAddress(address);
-        return """
-                User's name: %s %s
-                
-                User's address:
-                %s
-                """.formatted(user.getFirstName(), user.getLastName(), formatUserAddress(user));
+   public static void run() {
+       printResult(formatUserAddress());
+       Address newAddress = new Address("Elm St", "Shelbyville", "456");
+       user.setAddress(newAddress);
+       printResult("""
+        Address after changing:
+        City: %s
+        Street: %s
+        Building: %s
+        """.formatted(user.getAddress().getCity(), user.getAddress().getStreet(), user.getAddress().getBuildingNumber()));
     }
 
-    public void printResult(String output) {
-        getOutput(output);
+    public static void printResult(String newAddress) {
+        getOutput(newAddress);
     }
 }

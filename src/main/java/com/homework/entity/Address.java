@@ -18,15 +18,15 @@ public class Address {
         return "Address{street='" + street + "', city='" + city + "', buildingNumber='" + buildingNumber + "'}";
     }
 
-    public String street() {
+    public String getStreet() {
         return street;
     }
 
-    public String city() {
+    public String getCity() {
         return city;
     }
 
-    public String buildingNumber() {
+    public String getBuildingNumber() {
         return buildingNumber;
     }
 
