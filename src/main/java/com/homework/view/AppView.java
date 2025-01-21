@@ -1,9 +1,9 @@
-package com.homework.demo;
+package com.homework.view;
 
 import com.homework.entity.Address;
 import com.homework.entity.User;
 
-public class Demo {
+public class AppView {
 
     private void getOutput(String output) {
         System.out.println(output);
@@ -21,8 +21,8 @@ public class Demo {
     }
 
     public String setUserAddress() {
-        User user = new User("John", "Smith");
         Address address = new Address("Khreshchatyk St", "Kiev", "123");
+        User user = new User("John", "Smith", null);
         user.setAddress(address);
         return """
                 User's name: %s %s

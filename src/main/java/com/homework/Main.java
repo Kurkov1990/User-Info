@@ -1,10 +1,10 @@
 package com.homework;
 
-import com.homework.demo.Demo;
+import com.homework.view.AppView;
 
 public class Main {
     public static void main(String[] args) {
-        Demo demo = new Demo();
+        AppView demo = new AppView();
         demo.printResult(demo.setUserAddress());
     }
 }
